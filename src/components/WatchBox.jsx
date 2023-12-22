@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
+import { tempWatchedData } from "../data/watchedData";
 
 function WatchBox() {
   const [isOpen, setIsOpen] = useState(true);
+  const [watched, setWatched] = useState(tempWatchedData);
 
   return (
     <div className="box">
@@ -15,7 +17,7 @@ function WatchBox() {
       </button>
       {isOpen && (
         <>
-          <Summary />
+          <Summary watched={watched} />
           <WatchList />
         </>
       )}

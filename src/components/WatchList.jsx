@@ -1,29 +1,13 @@
 import React, { useState } from "react";
 import { tempWatchedData } from "../data/watchedData";
+import WatchElement from "./WatchElement";
 
 function WatchList() {
   const [watched, setWatched] = useState(tempWatchedData);
   return (
     <ul className="list">
       {watched.map((movie) => (
-        <li key={movie.imdbID}>
-          <img src={movie.Poster} alt={`${movie.Title} poster`} />
-          <h3>{movie.Title}</h3>
-          <div>
-            <p>
-              <span>⭐️</span>
-              <span>{movie.imdbRating}</span>
-            </p>
-            <p>
-              <span>🌟</span>
-              <span>{movie.userRating}</span>
-            </p>
-            <p>
-              <span>⏳</span>
-              <span>{movie.runtime} min</span>
-            </p>
-          </div>
-        </li>
+        <WatchElement data={movie} />
       ))}
     </ul>
   );

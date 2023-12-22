@@ -1,18 +1,22 @@
-import React, { useCallback } from "react";
+import React, { useState } from "react";
+import { tempMovieData } from "../data/movieData";
 
-function ListBox({ state, data }) {
+function ListBox() {
   // const dataChange = useCallback(() => [data]);
+  const [isOpen, setIsOpen] = useState(true);
+  const [movies, setMovies] = useState(tempMovieData);
+
   return (
     <div className="box">
       <button
         className="btn-toggle"
-        // onClick={() => dataChange((open) => !open)}
+        onClick={() => setIsOpen((isOpen) => !isOpen)}
       >
-        {state ? "–" : "+"}
+        {isOpen ? "–" : "+"}
       </button>
-      {state && (
+      {isOpen && (
         <ul className="list">
-          {data?.map((movie) => (
+          {movies?.map((movie) => (
             <li key={movie.imdbID}>
               <img src={movie.Poster} alt={`${movie.Title} poster`} />
               <h3>{movie.Title}</h3>

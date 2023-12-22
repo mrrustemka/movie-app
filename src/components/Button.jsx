@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
 
 function Button({ state, data }) {
-  const dataChange = useCallback(() => [data]);
+  // const dataChange = useCallback(() => [data]);
   return (
     <>
       <button
         className="btn-toggle"
-        onClick={() => dataChange((open) => !open)}
+        // onClick={() => dataChange((open) => !open)}
       >
         {state ? "–" : "+"}
       </button>

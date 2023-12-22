@@ -2,7 +2,7 @@ import { React } from "react";
 import { useState } from "react";
 import { tempMovieData } from "../data/movieData";
 
-export default function Header() {
+export default function NavBar() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState(tempMovieData);
   return (

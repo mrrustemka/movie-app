@@ -1,14 +1,14 @@
 import React from "react";
 
-function ListElement({ data }) {
+function ListElement({ list }) {
   return (
-    <li key={data.imdbID}>
-      <img src={data.Poster} alt={`${data.Title} poster`} />
-      <h3>{data.Title}</h3>
+    <li key={list.imdbID}>
+      <img src={list.Poster} alt={`${list.Title} poster`} />
+      <h3>{list.Title}</h3>
       <div>
         <p>
           <span>🗓</span>
-          <span>{data.Year}</span>
+          <span>{list.Year}</span>
         </p>
       </div>
     </li>

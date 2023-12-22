@@ -1,22 +1,22 @@
 import React from "react";
 
-function WatchElement({ data }) {
+function WatchElement({ list }) {
   return (
-    <li key={data.imdbID}>
-      <img src={data.Poster} alt={`${data.Title} poster`} />
-      <h3>{data.Title}</h3>
+    <li key={list.imdbID}>
+      <img src={list.Poster} alt={`${list.Title} poster`} />
+      <h3>{list.Title}</h3>
       <div>
         <p>
           <span>⭐️</span>
-          <span>{data.imdbRating}</span>
+          <span>{list.imdbRating}</span>
         </p>
         <p>
           <span>🌟</span>
-          <span>{data.userRating}</span>
+          <span>{list.userRating}</span>
         </p>
         <p>
           <span>⏳</span>
-          <span>{data.runtime} min</span>
+          <span>{list.runtime} min</span>
         </p>
       </div>
     </li>

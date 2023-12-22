@@ -7,7 +7,7 @@ function MovieList() {
   return (
     <ul className="list">
       {movies?.map((movie) => (
-        <ListElement data={movie} />
+        <ListElement list={movie} key={movie.imdbID} />
       ))}
     </ul>
   );

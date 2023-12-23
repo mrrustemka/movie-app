@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { tempMovieData } from "../data/movieData";
+import React from "react";
 
-function SearchResult() {
-  const [movies, setMovies] = useState(tempMovieData);
+function SearchResult({ movies }) {
   return (
     <p className="num-results">
       Found <strong>{movies.length}</strong> results

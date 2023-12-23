@@ -1,16 +1,9 @@
 import { React } from "react";
-import SearchResult from "./SearchResult";
-import Search from "./Search";
-import Logo from "./Logo";
 
-export default function NavBar({movies}) {
+export default function NavBar({ children }) {
   return (
     <>
-      <nav className="nav-bar">
-        <Logo />
-        <Search />
-        <SearchResult movies={movies}/>
-      </nav>
+      <nav className="nav-bar">{children}</nav>
     </>
   );
 }

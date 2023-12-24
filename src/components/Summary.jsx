@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { tempWatchedData } from "../data/watchedData";
+import React from "react";
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);

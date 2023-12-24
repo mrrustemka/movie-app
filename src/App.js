@@ -5,12 +5,15 @@ import SearchResult from "./components/SearchResult";
 import Search from "./components/Search";
 import Logo from "./components/Logo";
 import { tempMovieData } from "./data/movieData";
-import ListBox from "./components/ListBox";
-import WatchBox from "./components/WatchBox";
+import Box from "./components/Box";
 import MovieList from "./components/MovieList";
+import { tempWatchedData } from "./data/watchedData";
+import Summary from "./components/Summary";
+import WatchList from "./components/WatchList";
 
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
+  const [watched, setWatched] = useState(tempWatchedData);
   return (
     <>
       <NavBar>
@@ -19,10 +22,13 @@ export default function App() {
         <SearchResult movies={movies} />
       </NavBar>
       <Main>
-        <ListBox>
+        <Box>
           <MovieList movies={movies} />
-        </ListBox>
-        <WatchBox />
+        </Box>
+        <Box>
+          <Summary watched={watched} />
+          <WatchList watched={watched} />
+        </Box>
       </Main>
     </>
   );

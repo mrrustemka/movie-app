@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import MovieList from "./MovieList";
 
-function ListBox({ children }) {
+function Box({ children }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -17,4 +16,4 @@ function ListBox({ children }) {
   );
 }
 
-export default ListBox;
+export default Box;

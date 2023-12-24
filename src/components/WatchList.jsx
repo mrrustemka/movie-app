@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { tempWatchedData } from "../data/watchedData";
+import React from "react";
 import WatchElement from "./WatchElement";
 
-function WatchList() {
-  const [watched, setWatched] = useState(tempWatchedData);
+function WatchList({ watched }) {
+  console.log("a", watched[1]);
   return (
     <ul className="list">
-      {watched.map((movie) => (
+      {watched?.map((movie) => (
         <WatchElement list={movie} key={movie.imdbID} />
       ))}
     </ul>

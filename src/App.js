@@ -12,9 +12,15 @@ import Summary from "./components/Summary";
 import WatchList from "./components/WatchList";
 import ExpandText from "./components/ExpandText";
 
+const KEY = "68d1440d";
+
 export default function App() {
-  const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState(tempWatchedData);
+  const [movies, setMovies] = useState([]);
+  const [watched, setWatched] = useState([]);
+
+  fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar`)
+    .then((res) => res.json())
+    .then((data) => console.log(data.Search));
   return (
     <>
       <NavBar>

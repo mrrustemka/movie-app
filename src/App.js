@@ -20,7 +20,7 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  let query = "interstellar";
+  let query = "sadsfdjs";
 
   useEffect(function () {
     async function fetchMovies() {
@@ -34,6 +34,7 @@ export default function App() {
           throw new Error("Something went wrong with fetching data...");
         }
         const data = await res.json();
+        if (data.Response === "False") throw new Error("Movie not found");
         setMovies(data.Search);
       } catch (err) {
         console.log(err.message);
@@ -53,7 +54,6 @@ export default function App() {
         <SearchResult movies={movies} />
       </NavBar>
       <Main>
-        {/* <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box> */}
         <Box>
           {isLoading && <Loader />}
           {!isLoading && !error && <MovieList movies={movies} />}

@@ -10,7 +10,6 @@ import MovieList from "./components/MovieList";
 import { tempWatchedData } from "./data/watchedData";
 import Summary from "./components/Summary";
 import WatchList from "./components/WatchList";
-import ExpandText from "./components/ExpandText";
 
 const KEY = "68d1440d";
 
@@ -31,7 +30,6 @@ export default function App() {
       <Main>
         <Box>
           <MovieList movies={movies} />
-          <ExpandText />
         </Box>
         <Box>
           <Summary watched={watched} />

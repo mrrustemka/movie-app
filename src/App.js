@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import Main from "./components/Main";
 import SearchResult from "./components/SearchResult";
@@ -17,9 +17,12 @@ export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
 
-  fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar`)
-    .then((res) => res.json())
-    .then((data) => console.log(data.Search));
+  useEffect(function () {
+    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar`)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.Search));
+  }, []);
+
   return (
     <>
       <NavBar>

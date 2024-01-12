@@ -10,6 +10,8 @@ import Summary from "./components/Summary";
 import WatchList from "./components/WatchList";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
+import SelectedMovie from "./components/MovieDetail";
+import MovieDetail from "./components/MovieDetail";
 
 const KEY = "68d1440d";
 
@@ -19,7 +21,11 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  let tempQuery = "new york";
+  const [selectedId, setSelectedId] = useState(null);
+
+  function handleSelectMovie(id) {
+    setSelectedId(id);
+  }
 
   useEffect(
     function () {
@@ -63,12 +69,20 @@ export default function App() {
       <Main>
         <Box>
           {isLoading && <Loader />}
-          {!isLoading && !error && <MovieList movies={movies} />}
+          {!isLoading && !error && (
+            <MovieList movies={movies} onSelectedMovie={handleSelectMovie} />
+          )}
           {error && <ErrorMessage message={error} />}
         </Box>
         <Box>
-          <Summary watched={watched} />
-          <WatchList watched={watched} />
+          {selectedId ? (
+            <MovieDetail selectedId={selectedId} />
+          ) : (
+            <>
+              <Summary watched={watched} />
+              <WatchList watched={watched} />
+            </>
+          )}
         </Box>
       </Main>
     </>

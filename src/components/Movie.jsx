@@ -1,8 +1,8 @@
 import React from "react";
 
-function ListElement({ list, handleSelectMovie }) {
+function Movie({ list, onSelectMovie }) {
   return (
-    <li key={list.imdbID} onClick={handleSelectMovie}>
+    <li key={list.imdbID} onClick={() => onSelectMovie(list.imdbID)}>
       <img src={list.Poster} alt={`${list.Title} poster`} />
       <h3>{list.Title}</h3>
       <div>
@@ -15,4 +15,4 @@ function ListElement({ list, handleSelectMovie }) {
   );
 }
 
-export default ListElement;
+export default Movie;

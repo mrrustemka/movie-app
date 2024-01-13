@@ -10,8 +10,8 @@ import Summary from "./components/Summary";
 import WatchList from "./components/WatchList";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
-import SelectedMovie from "./components/MovieDetail";
-import MovieDetail from "./components/MovieDetail";
+import SelectedMovie from "./components/MovieDetails";
+import MovieDetails from "./components/MovieDetails";
 
 const KEY = "68d1440d";
 
@@ -24,7 +24,11 @@ export default function App() {
   const [selectedId, setSelectedId] = useState(null);
 
   function handleSelectMovie(id) {
-    setSelectedId(id);
+    setSelectedId((selectedId) => (id === selectedId ? null : id));
+  }
+
+  function handleCloseMovie() {
+    setSelectedId(null);
   }
 
   useEffect(
@@ -70,13 +74,16 @@ export default function App() {
         <Box>
           {isLoading && <Loader />}
           {!isLoading && !error && (
-            <MovieList movies={movies} onSelectedMovie={handleSelectMovie} />
+            <MovieList movies={movies} onSelectMovie={handleSelectMovie} />
           )}
           {error && <ErrorMessage message={error} />}
         </Box>
         <Box>
           {selectedId ? (
-            <MovieDetail selectedId={selectedId} />
+            <MovieDetails
+              selectedId={selectedId}
+              onCloseMovie={handleCloseMovie}
+            />
           ) : (
             <>
               <Summary watched={watched} />

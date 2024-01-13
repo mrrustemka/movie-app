@@ -1,11 +1,11 @@
 import React from "react";
-import ListElement from "./ListElement";
+import Movie from "./Movie";
 
-function MovieList({ movies, handleSelectMovie }) {
+function MovieList({ movies, onSelectMovie }) {
   return (
     <ul className="list">
       {movies?.map((movie) => (
-        <ListElement list={movie} key={movie.imdbID} onSelectedMovie={handleSelectMovie}/>
+        <Movie list={movie} key={movie.imdbID} onSelectMovie={onSelectMovie} />
       ))}
     </ul>
   );

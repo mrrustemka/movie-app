@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StarRating from "./StarRating";
 import Loader from "./Loader";
 
@@ -29,6 +29,14 @@ function MovieDetails({
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
+
+  useEffect(
+    function () {
+      if (!movie.Title) return;
+      document.title = `Movies | ${movie.Title}`;
+    },
+    [movie.Title]
+  );
   return (
     <div className="details">
       {isLoading ? (

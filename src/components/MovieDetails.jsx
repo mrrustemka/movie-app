@@ -34,6 +34,10 @@ function MovieDetails({
     function () {
       if (!movie.Title) return;
       document.title = `Movies | ${movie.Title}`;
+
+      return function () {
+        document.title = "Movies";
+      };
     },
     [movie.Title]
   );

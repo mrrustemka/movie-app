@@ -1,24 +1,30 @@
 import React from "react";
 
-function WatchMovie({ list }) {
+function WatchMovie({ movie, onDeleteWatched }) {
   return (
-    <li key={list.imdbID}>
-      <img src={list.Poster} alt={`${list.Title} poster`} />
-      <h3>{list.Title}</h3>
+    <li key={movie.imdbID}>
+      <img src={movie.Poster} alt={`${movie.Title} poster`} />
+      <h3>{movie.Title}</h3>
       <div>
         <p>
           <span>⭐️</span>
-          <span>{list.imdbRating}</span>
+          <span>{movie.imdbRating}</span>
         </p>
         <p>
           <span>🌟</span>
-          <span>{list.userRating}</span>
+          <span>{movie.userRating}</span>
         </p>
         <p>
           <span>⏳</span>
-          <span>{list.runtime} min</span>
+          <span>{movie.runtime} min</span>
         </p>
       </div>
+      <button
+        className="btn-delete"
+        onClick={() => onDeleteWatched(movie.imdbID)}
+      >
+        X
+      </button>
     </li>
   );
 }

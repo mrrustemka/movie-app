@@ -1,6 +1,6 @@
 import React from "react";
 
-function WatchElement({ list }) {
+function WatchMovie({ list }) {
   return (
     <li key={list.imdbID}>
       <img src={list.Poster} alt={`${list.Title} poster`} />
@@ -23,4 +23,4 @@ function WatchElement({ list }) {
   );
 }
 
-export default WatchElement;
+export default WatchMovie;

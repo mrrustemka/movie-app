@@ -1,11 +1,11 @@
 import React from "react";
-import WatchElement from "./WatchElement";
+import WatchMovie from "./WatchMovie";
 
 function WatchList({ watched }) {
   return (
     <ul className="list">
       {watched?.map((movie) => (
-        <WatchElement list={movie} key={movie.imdbID} />
+        <WatchMovie list={movie} key={movie.imdbID} />
       ))}
     </ul>
   );

@@ -10,10 +10,9 @@ import Summary from "./components/Summary";
 import WatchList from "./components/WatchList";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
-import SelectedMovie from "./components/MovieDetails";
 import MovieDetails from "./components/MovieDetails";
 
-const KEY = "68d1440d";
+export const KEY = "68d1440d";
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -22,6 +21,8 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
+  const [movie, setMovie] = useState({});
+  const [isLoadingDetails, setIsLoadingDetails] = useState(false);
 
   function handleSelectMovie(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
@@ -63,6 +64,23 @@ export default function App() {
     [query]
   );
 
+  useEffect(
+    function () {
+      async function getMovieDetails() {
+        setIsLoadingDetails(true);
+        const res = await fetch(
+          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+        );
+        const data = await res.json();
+        setMovie(data);
+        setIsLoadingDetails(false);
+      }
+
+      getMovieDetails();
+    },
+    [selectedId]
+  );
+
   return (
     <>
       <NavBar>
@@ -81,8 +99,9 @@ export default function App() {
         <Box>
           {selectedId ? (
             <MovieDetails
-              selectedId={selectedId}
+              movie={movie}
               onCloseMovie={handleCloseMovie}
+              isLoading={isLoadingDetails}
             />
           ) : (
             <>

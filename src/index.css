@@ -1,6 +1,6 @@
 :root {
-  --color-primary: #d71532;
-  --color-primary-light: #efb6bf99;
+  --color-primary: #ffffff;
+  --color-primary-light: #21252940;
   --color-text: #dee2e6;
   --color-text-dark: #adb5bd;
   --color-background-100: #343a40;
@@ -83,7 +83,7 @@ body {
 .logo h1 {
   font-size: 2.4rem;
   font-weight: 600;
-  color: #fff;
+  color: #000;
 }
 
 .search {
@@ -94,7 +94,7 @@ body {
   border-radius: 0.7rem;
   width: 40rem;
   transition: all 0.3s;
-  color: var(--color-text);
+  /* color: var(--color-text); */
 
   background-color: var(--color-primary-light);
 }
@@ -112,6 +112,7 @@ body {
 .num-results {
   justify-self: end;
   font-size: 1.8rem;
+  color: #000;
 }
 
 .btn-toggle {

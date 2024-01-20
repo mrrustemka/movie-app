@@ -285,7 +285,7 @@ body {
 
 .btn-add {
   background-color: var(--color-primary);
-  color: var(--color-text);
+  color: #000;
   border: none;
   border-radius: 10rem;
   font-size: 1.4rem;
@@ -297,6 +297,7 @@ body {
 
 .btn-add:hover {
   background-color: var(--color-primary-light);
+  color: #fff;
 }
 
 .seconds {
